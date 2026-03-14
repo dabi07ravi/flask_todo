@@ -23,6 +23,8 @@ from flask import Flask
 from config import Config
 from database.db import db
 from routes.user_routes import user_bp
+from flask_migrate import Migrate
+
 
 app = Flask(__name__)
 
@@ -32,8 +34,8 @@ db.init_app(app)
 
 app.register_blueprint(user_bp, url_prefix="/users")
 
-with app.app_context():
-    db.create_all()
+migrate = Migrate(app, db)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=3000)
