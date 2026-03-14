@@ -16,7 +16,10 @@
 # if __name__ == "__main__":
 #     app.run(debug=True, port=3000)
 
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 
 from flask import Flask
@@ -38,4 +41,4 @@ migrate = Migrate(app, db)
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=3000)
+    app.run(debug=True, port=os.getenv("PORT"))
