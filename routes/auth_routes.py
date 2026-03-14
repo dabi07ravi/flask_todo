@@ -23,7 +23,6 @@ def login():
 def profile():
 
     user_id = get_jwt_identity()
-    print("userrrrrid", user_id)
 
     return jsonify({
         "message": "Access granted",
