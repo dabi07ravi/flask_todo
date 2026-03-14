@@ -10,6 +10,7 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     age = db.Column(db.Integer)
     role = db.Column(db.String(50))
+    password = db.Column(db.String(255), nullable=False)
 
     def to_dict(self):
         return {
